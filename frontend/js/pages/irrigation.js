@@ -46,8 +46,8 @@ export const mount = () => {
   });
 };
 
-const fid = farmId();
-  const mapData = await api.get(`/farms/${fid}/map`).catch(() => null);
+async function mainIrrigationPage() {
+  const mapData = await api.get(`/farms/${farmId}/map`).catch(() => null);
   const zoneList = [];
   if (mapData) mapData.fields.forEach((f) => f.blocks.forEach((b) => b.zones.forEach((z) => zoneList.push({ id: z.id, name: z.name, block: b.name }))));
   let schedule = [];
