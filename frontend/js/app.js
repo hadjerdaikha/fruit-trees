@@ -19,6 +19,7 @@ import * as reportsPage from "./pages/reports.js";
 import * as varietyPage from "./pages/variety.js";
 import * as alertsPage from "./pages/alerts.js";
 import * as zoneDetailPage from "./pages/zone.js";
+import * as algeriaPage from "./pages/algeria.js";
 
 const NAV = [
   { key: "dashboard", icon: "📊", labelKey: "nav_dashboard" },
@@ -34,6 +35,7 @@ const NAV = [
   { key: "alerts", icon: "🚨", labelKey: "nav_alerts" },
   { key: "sensors", icon: "📡", labelKey: "nav_sensors" },
   { key: "variety", icon: "🌿", labelKey: "nav_variety" },
+  { key: "algeria", icon: "🇩🇿", labelKey: "nav_algeria" },
   { key: "reports", icon: "📈", labelKey: "nav_reports" },
 ];
 
@@ -56,6 +58,7 @@ const ROUTES = {
   variety: varietyPage,
   reports: reportsPage,
   zone: zoneDetailPage,
+  algeria: algeriaPage,
 };
 
 function parseHash() {
@@ -140,7 +143,7 @@ async function render() {
     (title ? title.querySelector("span:last-child").textContent : t("nav_dashboard"));
 
   buildNav(); // re-render for i18n
-  setActiveNav(name === "zone" || name === "irrigation/schedule" || name === "irrigation/events" ? name.split("/")[0] : name);
+  setActiveNav(name.includes("/") ? name.split("/")[0] : name);
 
   document.getElementById("user-chip").textContent = user.full_name + " · " + roleLabel(user.role);
 
