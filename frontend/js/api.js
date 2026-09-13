@@ -1,6 +1,6 @@
 // API client for the Oasis backend
 
-const API = "/api/v1";
+const API = window.OASIS_API_BASE || localStorage.getItem("oasis_api_base") || "/api/v1";
 
 function token() {
   return localStorage.getItem("oasis_token") || "";

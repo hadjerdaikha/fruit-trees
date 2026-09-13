@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./oasis.db"
     upload_dir: str = "./uploads"
     storage_backend: str = "local"
-    cors_origins: list[str] = ["http://localhost:3000", "http://localhost:3001"]
+    cors_origins: list[str] = ["http://localhost:3000", "http://localhost:3001", "https://*.vercel.app"]
 
     class Config:
         env_file = ".env"
